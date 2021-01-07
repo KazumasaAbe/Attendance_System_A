@@ -152,10 +152,12 @@
           <% end %>
          
           <td rowspan="2">
+            <% if current_user?(@user) %>
             <% if day.change_started_at.present? && day.change_finished_at.nil? %>
               <% if btn_text = attendance_state(day) %>
                 <%= link_to "#{btn_text}登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
               <% end %>
+            <% end %>
             <% end %>
           </td>
 
